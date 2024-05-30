@@ -1,0 +1,92 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Клієнт</title>
+        <link id="themeStylesheet" rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>Вітаємо у готелі-ресторані MSiI</h1>
+        <!--Authors: Доліцой М.В.(Tabs) / Слободенюк О.А.(Text + Black theme) / Соц І.І.(Menu)-->
+        <div style="position: absolute; top: 10px; right: 10px;">
+            <button onclick="switchTheme()" style="padding: 10px 20px; border-radius: 8px; cursor: pointer;">☀ ⇋ ☾</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tablinks" data-tab="Home" onclick="openTab(event, 'Home')">Головна</button>
+            <button class="tablinks" data-tab="BookTable" onclick="openTab(event, 'BookTable')">Забронювати стіл у нашому ресторані</button>
+            <button class="tablinks" data-tab="CheckReservationsRestaurant" onclick="openTab(event, 'CheckReservationsRestaurant')">Переглянути свої бронювання в ресторані</button>
+            <button class="tablinks" data-tab="Menu" onclick="openTab(event, 'Menu')">Меню</button>
+            <button class="tablinks" data-tab="BookRoom" onclick="openTab(event, 'BookRoom')">Забронювати номер</button>
+            <button class="tablinks" data-tab="CheckReservationsHotel" onclick="openTab(event, 'CheckReservationsHotel')">Переглянути бронювання в готелі</button>
+        </div>
+
+        <div id="Home" class="tabcontent" style="display: active;">
+            <h3>Вітаю у вікні клієнта, виберіть подальшу вкладку.</h3>
+            <img src="assets/images/cl.png", style="height: 300px; width: 300px;">
+        </div>
+
+        <div id="BookTable" class="tabcontent" style="display: none;">
+            <h3>Забронювати стіл у нашому ресторані туть:</h3>
+            <div id="reservationTable"></div>
+            <div id="reservationRestaurantModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Забронювати</h2>
+                <div id="modalSlotName"></div>
+                <input type="text" id="modalName" placeholder="Ваше ім'я">
+                <input type="text" id="modalContactInfo" placeholder="Ваша контактна інформація">
+                <input type="number" id="modalAmountOfPeople" placeholder="Кількість людей">
+                <button id="submitReservationRestaurant">Підтвердити</button>
+            </div>
+            </div>
+        </div>
+
+        <div id="CheckReservationsRestaurant" class="tabcontent" style="display: none;">
+            <h3>Переглянути бронювання столика</h3>
+            <input type="text" id="searchName" placeholder="Ваше ім'я">
+            <input type="text" id="searchContactInfo" placeholder="Ваша контактна інформація" min="1">
+            <button id="checkReservationsRestaurant">Переглянути</button>
+            <div id="reservationDetails"></div>
+        </div>
+
+        <div id="Menu" class="tabcontent" style="display: none;">
+            <h3>Наше меню</h3>
+            <div class="menu-item">
+                <img src="assets/images/pizza.png" alt="Pizza">
+                <h3>Pizza - 100 UAH</h3>
+            </div>
+            <div class="menu-item">
+                <img src="assets/images/steak.png" alt="Steak">
+                <h3>Steak - 150 UAH</h3>
+            </div>
+            <div class="menu-item">
+                <img src="assets/images/soup.png" alt="Soup">
+                <h3>Soup - 200 UAH</h3>
+            </div>
+        </div>
+
+        <div id="BookRoom" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h3>Забронювати кімнату</h3>
+                <input type="text" id="modalHotelName" placeholder="Ваше ім'я">
+                <input type="text" id="modalHotelContactInfo" placeholder="Ваша контактна інформація">
+                <input type="number" id="modalHotelAmountOfPeople" placeholder="Кількість людей" min="1">
+                <input type="date" id="modalHotelCheckIn">
+                <input type="date" id="modalHotelCheckOut">
+                <button id="submitHotelReservation">Підтвердити</button>
+            </div>
+        </div>
+
+        <div id="CheckReservationsHotel" class="tabcontent" style="display: none;">
+            <h3>Переглянути бронювання номера</h3>
+            <input type="text" id="searchHotelName" placeholder="Ваше ім'я">
+            <input type="text" id="searchHotelContactInfo" placeholder="Ваша контактна інформація">
+            <button id="checkHotelReservations">Переглянути</button>
+            <div id="hotelReservationDetails"></div>
+        </div>
+
+        <button id="backButton" class="button">Назад</button>
+        <script src="js/script.js" defer></script>
+        <script src="js/client.js" defer></script>
+    </body>
+    </html>

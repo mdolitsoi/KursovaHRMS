@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Власник</title>
+    <link id="themeStylesheet" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <h1>Вітаємо у готелі- ресторані MSiI</h1>
+    <!--Author: Доліцой М.В.-->
+    <div style="position: absolute; top: 10px; right: 10px;">
+        <button onclick="switchTheme()" style="padding: 10px 20px; border-radius: 8px; cursor: pointer;">☀ ⇋ ☾</button>
+    </div>
+
+    <div class="tabs">
+        <button class="tablinks" data-tab="Home" onclick="openTab(event, 'Home')">Головна</button>
+        <button class="tablinks" data-tab="Booking123" onclick="openTab(event, 'Booking123')">Бронування</button>
+        <button class="tablinks" data-tab="AddDish" onclick="openTab(event, 'AddDish')">Додати страву</button>
+        <button class="tablinks" data-tab="ChangePassword" onclick="openTab(event, 'ChangePassword')">Змінити пароль</button>
+    </div>
+
+    <div id="Home" class="tabcontent" style="display: active;">
+        <h3>Вітаю у вікні власника, виберіть подальшу вкладку.</h3>
+        <img src="assets/images/ow.png", style="height: 300px; width: 300px;">
+    </div>
+
+    <div id="Booking123" class="tabcontent" style="display: none;">
+        <h3>Бронювання у ресторані за сьогодні:</h3>
+        <table id="restaurantReservationsTable" class="display">
+            <thead>
+                <tr>
+                    <th>Ім'я</th>
+                    <th>Контактна інформація</th>
+                    <th>Кількість людей</th>
+                    <th>Час</th>
+                    <th>Дія</th>
+                </tr>
+            </thead>
+            <tbody id="restaurantReservationsBody">
+            </tbody>
+        </table>
+        <h3>Бронювання у готелі за сьогодні:</h3>
+        <table id="hotelReservationsTable" class="display">
+            <thead>
+                <tr>
+                    <th>Ім'я</th>
+                    <th>Контактна інформація</th>
+                    <th>Кількість людей</th>
+                    <th>Дата заїзду</th>
+                    <th>Дата виїзду</th>
+                    <th>Дія</th>
+                </tr>
+            </thead>
+            <tbody id="hotelReservationsBody">
+            </tbody>
+        </table>
+        <h3>Кількість бронювань за сьогодні: <span id="reservationCountDisplay">0</span></h3>
+        <button id="clearAllReservationsButton" type="button" class="button">Видалити всі бронювання</button>
+        <button id="clearMenuChangesButton" type="button" class="button">Видалити зміни у меню</button>
+        <button id="clearPasswordChangesButton" type="button" class="button">Видалити зміни у паролях</button>
+    </div>
+
+    <div id="AddDish" class="tabcontent"style="display: none;">
+        <h3>Додати страву до меню</h3>
+        <input type="text" id="menuItemName" placeholder="Назва страви" required>
+        <input type="text" id="menuItemPrice" placeholder="Ціна" required>
+        <input type="file" id="menuItemPhoto" accept="image/*">
+        <button id="addMenuItemButton" class="button">Додати</button>
+    </div>
+
+    <div id="ChangePassword" class="tabcontent" style="display: none;">
+        <h3>Змінити пароль</h3>
+        <input type="text" id="username" placeholder="Ім'я користувача" required>
+        <input type="password" id="newPassword" placeholder="Новий пароль" required>
+        <button id="changePasswordButton" class="button">Змінити пароль</button>
+    </div>
+
+    <button id="backButton" class="button">Назад</button>
+    <script src="js/script.js" defer></script>
+    <script src="js/owner.js" defer></script>
+</body>
+</html>

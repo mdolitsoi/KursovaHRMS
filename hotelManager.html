@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Менеджер готелю</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link id="themeStylesheet" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--Author: Слободенюк О. А.(Chart)-->
+    <h1>Вітаємо у готелі-ресторані MSiI</h1>
+
+    <div style="position: absolute; top: 10px; right: 10px;">
+        <button onclick="switchTheme()" style="padding: 10px 20px; border-radius: 8px; cursor: pointer;">☀ ⇋ ☾</button>
+    </div>
+
+    <div class="tabs">
+        <button class="tablinks" data-tab="Home" onclick="openTab(event, 'Home')">Головна</button>
+        <button class="tablinks" data-tab="Booking" onclick="openTab(event, 'Booking')">Бронування</button>
+        <button class="tablinks" data-tab="Reviews" onclick="openTab(event, 'Reviews')">Відгуки</button>
+        <button class="tablinks" data-tab="Stats" onclick="openTab(event, 'Stats')">Статистика</button>
+    </div>
+
+    <div id="Home" class="tabcontent" style="display: active;">
+        <h3>Вітаю у вікні менеджера готелю, виберіть подальшу вкладку.</h3>
+        <img src="assets/images/hm.png" style="height: 300px; width: 300px;">
+    </div>
+
+    <div id="Booking" class="tabcontent" style="display: none;">
+        <h3>Переглянути бронювання</h3>
+        <button id="checkHotelReservationsButton" type="button" class="btn btn-primary">Переглянути бронювання</button>
+        <div id="reservationsDisplay" class="mt-3"></div>
+    </div>    
+
+    <div id="Reviews" class="tabcontent" style="display: none;">
+        <h3>Відгуки клієнтів</h3>
+        <div id="reviewsDisplay"></div>
+    </div>
+
+    <div id="Stats" class="tabcontent" style="display: none;">
+        <h3>Статистика</h3>
+        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+            <canvas id="bookingChart"></canvas>
+        </div>        
+    </div>
+    
+    <button id="backButton" class="button">Назад</button>  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/hotelManager.js" defer></script>
+
+</body>
+</html>
